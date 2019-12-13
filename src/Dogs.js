@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button, FormGroup, Form, Label, Input } from 'reactstrap';
 import DogCard from "./DogCard";
 
 const Dogs = props => {
@@ -17,14 +18,18 @@ const Dogs = props => {
     }
     console.log(breed);
     return (
-        <div>
-            <div>
-                <form onSubmit={e => onSubmit(e)}>
-                    <input type="text" name="breed" onChange={handleChange}></input>
-                <button>Change Breed</button>
-                </form>
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <div style={{width : "500px"}}>
+                <FormGroup>
+                <Form onSubmit={e => onSubmit(e)}>
+                    <Label>Enter your breed</Label>
+                    <Input type="text" name="breed" onChange={handleChange}></Input>
+                    <br></br>
+                <Button color="success">Change Breed</Button>
+                </Form>
+                </FormGroup>
             </div>
-            <div>
+            <div style={{width : '100%', display: 'flex', flexFlow: 'row wrap', justifyContent: 'center'}}>
             {dogs.map((dog, index) => {
                 return <DogCard key={index} dog={dog}/>
             })}
