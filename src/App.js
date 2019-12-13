@@ -19,11 +19,12 @@ function App() {
         console.log(error)
     });
 
-  }, []);
+  }, [currentBreed]);
 
   const changeBreed = (breed) => {
     setCurrentBreed(breed)
   };
+
 
   return (
     <div className="App">
